@@ -1,0 +1,28 @@
+ {
+  "name": "GPA calculator",
+  "manifest_version" : 2,
+  "version": "1",
+  "description": "Manipulate the DOM when the page is done loading",
+  "browser_action": {
+    "name": "Manipulate DOM",
+    "icons": ["icon.png"],
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "storage",
+    "declarativeContent"
+],
+"background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [ {
+    "js": [ "jquery.min.js","materialize.min.js","background.js" ],
+    "matches": [ "http://acoe.annauniv.edu/sems/student/mark", "https://acoe.annauniv.edu/sems/student/mark"]
+  }],
+  "browser_action": {
+    "default_popup" : "background.html"
+  }
+}
